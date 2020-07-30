@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
 
 /* Спецификация */
 *
@@ -9,17 +11,104 @@
 
 body
 {
-    /* overflow-x: hidden; */
-    font-family: Quicksand, Georgia, Times, 'Times New Roman', serif;
+    font-family: Quicksand, "Open Sans", Georgia, Times, 'Times New Roman', serif;
     font-weight: 500;
-    background-color: #f5fcfd;
-}
-
-ul, li
-{
-    margin: 0;
-    padding: 0;
-    display: block;
+    font-size: 16px;
+    background-color: white;
 }
 
 /* */
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    border: 2px solid #3197f7;
+    background-color: #f5fcfd;
+    padding: 30px;
+    margin: 20px;
+}
+
+input, textarea, button
+{
+    padding: 5px 10px;
+    border: 1px solid #0068c9;
+    border-bottom-color: #01498d;
+    border-right-color: #01498d;
+    background-color: white;
+    border-radius: 5px;
+}
+
+input:focus, textarea:focus, button:focus
+{
+    outline: none;
+}
+
+input[type="color"]
+{
+    padding: 0;
+}
+
+textarea
+{
+    height: 100px;
+}
+
+/* FIELDS */
+
+.fields
+{
+
+}
+
+.field
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* REFERENCES */
+
+.references
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.reference
+{
+    text-align: center;
+    margin-right: 10px;
+}
+
+/* BUTTONS */
+
+.buttons
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button
+{
+    margin: 15px;
+    transition: 0.1s;
+}
+
+.button:hover
+{
+    background-color: rgb(230, 230, 230);
+}
+
+@media screen and (max-width: 540px)
+{
+    body
+    {
+        font-size: 14px;
+    }
+}
