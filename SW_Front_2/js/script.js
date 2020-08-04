@@ -1,13 +1,19 @@
 
+$("#jsonLoader").change(function () {reader.readAsText(this.files[0]);});
 
-let formObj = JSON.parse(addPostForm);
-form = createForm(formObj);
-$(".mainSec").append(form);
+const reader = new FileReader();
+reader.onload = function () {
+    $(".mainSec").empty();
+    let formObj = JSON.parse(reader.result);
+    form = createForm(formObj);
+    $(".mainSec").append(form);
 
-$(".mainSec").append(createForm(JSON.parse(colorSchemeForm)));
-$(".mainSec").append(createForm(JSON.parse(interviewForm)));
-$(".mainSec").append(createForm(JSON.parse(signInForm)));
-$(".mainSec").append(createForm(JSON.parse(signUpForm)));
+    $('input[mask]').each((index, element) => {
+        $(element).inputmask($(element).attr("mask"));
+    });
+    $('input[type="checkbox"]').parent().css({"flex-direction": "row", "align-items": "center"});
+    $('input[type="checkbox"]').parent().children("label").css({"margin": "0 10px"});
+};
 
 function createForm(formObj)
 {
@@ -143,10 +149,3 @@ function createForm(formObj)
     return form;
 }
 
-$('input[mask]').each((index, element) => {
-    $(element).inputmask($(element).attr("mask"));
-});
-
-$('input[type="checkbox"]').parent().children("label").css({"margin": "0 10px"});
-$('input[type="checkbox"]').parent().css({"flex-direction": "row", "align-items": "center"});
-$('#phone').inputmask("mask", {"mask": "(999) 999-9999"});
